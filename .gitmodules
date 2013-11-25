@@ -1,0 +1,3 @@
+[submodule "Bootstrap-Admin-Theme"]
+	path = Bootstrap-Admin-Theme
+	url = git://github.com/VinceG/Bootstrap-Admin-Theme
