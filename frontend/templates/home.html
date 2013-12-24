@@ -20,12 +20,53 @@
                 <li class="dropdown">
                     <a href="#" data-toggle="dropdown" class="dropdown-toggle">Frontends<b class="caret"></b></a>
                     <ul class="dropdown-menu">
-                        <li><a name="list" id="list" href="#">List</a></li>
+                        <li><a name="frontends" id="frontends" href="#">List</a></li>
                         <li><a href="#">Add</a></li>
                         <li><a href="#">Remove</a></li>
                     </ul>
                 </li>
             </ul>
+            <ul role="navigation" class="nav">
+                <li class="dropdown">
+                    <a href="#" data-toggle="dropdown" class="dropdown-toggle">Backends<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a name="backends" id="backends" href="#">List</a></li>
+                        <li><a href="#">Add</a></li>
+                        <li><a href="#">Remove</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul role="navigation" class="nav">
+                <li class="dropdown">
+                    <a href="#" data-toggle="dropdown" class="dropdown-toggle">Listens<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a name="listens" id="listens" href="#">List</a></li>
+                        <li><a href="#">Add</a></li>
+                        <li><a href="#">Remove</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul role="navigation" class="nav">
+                <li class="dropdown">
+                    <a href="#" data-toggle="dropdown" class="dropdown-toggle">Defaults<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a name="defaults" id="defaults" href="#">List</a></li>
+                        <li><a href="#">Add</a></li>
+                        <li><a href="#">Remove</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul role="navigation" class="nav">
+                <li class="dropdown">
+                    <a href="#" data-toggle="dropdown" class="dropdown-toggle">Global<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a name="global" id="global" href="#">List</a></li>
+                        <li><a href="#">Add</a></li>
+                        <li><a href="#">Remove</a></li>
+                    </ul>
+                </li>
+            </ul>
+
             <ul class="nav pull-right">
                 <li class="dropdown">
                     <a href="#" data-toggle="dropdown" class="dropdown-toggle">Admin <b class="caret"></b></a>
@@ -42,7 +83,7 @@
     </div>
 </div>
 <script>
-$("#list").click(function() {
+$("#frontends").click(function() {
     $.getJSON( "frontends", function( data ) {
         var data = eval(data);
         var items = [];
@@ -52,6 +93,27 @@ $("#list").click(function() {
         $('.container').html(items);
     });
 });
+$("#backends").click(function() {
+    $.getJSON( "backends", function( data ) {
+        var data = eval(data);
+        var items = [];
+        $.each(data['backends'], function( id, obj ) {
+            items.push( "<p>" + obj['name'] + "</p>" );
+        });
+        $('.container').html(items);
+    });
+});
+$("#listens").click(function() {
+    $.getJSON( "listens", function( data ) {
+        var data = eval(data);
+        var items = [];
+        $.each(data['listens'], function( id, obj ) {
+            items.push( "<p>" + obj['name'] + "</p>" );
+        });
+        $('.container').html(items);
+    });
+});
+
 </script>
 </body>
 </html>                                		
